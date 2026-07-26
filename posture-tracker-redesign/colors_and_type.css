@@ -1,0 +1,74 @@
+:root {
+  /* Core design tokens */
+  --barbie-background: #ffffff;
+  --barbie-foreground: #310015;
+  --barbie-card: #fffafc;
+  --barbie-card-foreground: #310015;
+  --barbie-popover: #ffffff;
+  --barbie-popover-foreground: #310015;
+  --barbie-primary: #e91e63;
+  --barbie-primary-foreground: #ffffff;
+  --barbie-secondary: #fce4ec;
+  --barbie-secondary-foreground: #c2185b;
+  --barbie-accent: #ff9ec5;
+  --barbie-accent-foreground: #ffffff;
+  --barbie-muted: #ffebf3;
+  --barbie-muted-foreground: #d60072;
+  --barbie-destructive: #d50000;
+  --barbie-destructive-foreground: #ffffff;
+  --barbie-border: #fce4ec;
+  --barbie-input: #fce4ec;
+  --barbie-ring: #e91e63;
+
+  /* Chart */
+  --barbie-chart-1: #e91e63;
+  --barbie-chart-2: #c2185b;
+  --barbie-chart-3: #f06292;
+  --barbie-chart-4: #ad1457;
+  --barbie-chart-5: #880e4f;
+
+  /* Semantic aliases */
+  --background: #ffffff;
+  --foreground: #310015;
+  --card: #fffafc;
+  --card-foreground: #310015;
+  --popover: #ffffff;
+  --popover-foreground: #310015;
+  --primary: #e91e63;
+  --primary-foreground: #ffffff;
+  --secondary: #fce4ec;
+  --secondary-foreground: #c2185b;
+  --accent: #ff9ec5;
+  --accent-foreground: #ffffff;
+  --muted: #ffebf3;
+  --muted-foreground: #d60072;
+  --destructive: #d50000;
+  --destructive-foreground: #ffffff;
+  --border: #fce4ec;
+  --input: #fce4ec;
+  --ring: #e91e63;
+
+  /* Font families */
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-2xs: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.04);
+  --shadow-xs: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.04);
+  --shadow-sm: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-md: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-lg: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-2xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.2);
+
+  /* Radius */
+  --radius: 28.8px;
+  --radius-sm: 14.4px;
+  --radius-md: 20px;
+  --radius-lg: 28.8px;
+
+  /* Spacing */
+  --spacing: 4px;
+}

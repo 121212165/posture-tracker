@@ -1,0 +1,229 @@
+{
+  "data": [
+    {
+      "id": "image-001",
+      "title": "普拉提主题横幅图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 0,
+        "y": 662
+      },
+      "devMetadata": {
+        "imageSrc": "assets/hero-pilates.jpg"
+      }
+    },
+    {
+      "id": "page-login",
+      "title": "登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/login.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-index",
+      "title": "首页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 309,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "go-assessment",
+            "targetPageId": "page-assessment-create",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-members",
+            "targetPageId": "page-members",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-members",
+      "title": "学员列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 618,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/members.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-member-detail",
+      "title": "学员详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 927,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/member-detail.html",
+        "interactions": [
+          {
+            "domId": "back-members",
+            "targetPageId": "page-members",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-assessment-create",
+      "title": "新建评估",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 1236,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/assessment-create.html",
+        "interactions": [
+          {
+            "domId": "back-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-assessment-detail",
+      "title": "评估详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 1545,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/assessment-detail.html",
+        "interactions": [
+          {
+            "domId": "back-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-report",
+      "title": "评估报告",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 1854,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/report.html",
+        "interactions": [
+          {
+            "domId": "back-detail",
+            "targetPageId": "page-assessment-detail",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-profile",
+      "title": "个人中心",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 2163,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/profile.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-members",
+            "targetPageId": "page-members",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-h5-report",
+      "title": "H5学员报告",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1753411200000,
+      "canvasData": {
+        "x": 2472,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/h5-report.html",
+        "interactions": []
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "mobile",
+    "projectName": "普拉提体态追踪器 V2"
+  }
+}

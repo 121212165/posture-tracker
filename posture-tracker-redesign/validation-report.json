@@ -1,0 +1,120 @@
+{
+  "success": true,
+  "outcome": "passed",
+  "repairable": true,
+  "terminalViolations": [],
+  "terminalBlockingSummary": null,
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "2025.07.25",
+    "version_source": "unknown",
+    "runtime_skill_dir": null,
+    "recorded_at": null,
+    "expected_version": "2026.07.22.00.00.00",
+    "status": "mismatch",
+    "read_status": "ok"
+  },
+  "operatingMode": "free-explore",
+  "renderBlockingErrorCount": 0,
+  "softWarningCount": 6,
+  "renderBlockingErrors": [],
+  "errorSignatures": [],
+  "softWarnings": [
+    "[orchestration-summary] runtime-orchestration-summary.json is missing skillProvenance.name/version/version_source. Version provenance will be reported as observed_unknown by external evaluators.",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--barbie-secondary, --barbie-secondary-foreground, --barbie-accent, --barbie-accent-foreground, --secondary, --secondary-foreground, --accent, --accent-foreground). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] colors_and_type.css: free-explore radius tokens must stay within the restrained 2/4/8/12/16px scale; oversized or forbidden radius tokens found (--radius-md: 20px, --radius-lg: 28.8px). Do not use 20px+ radii unless the user explicitly requested large rounded shapes.",
+    "[html-quality] colors_and_type.css: ordinary/static shadow tokens must keep every shadow alpha <= 0.05; deeper shadows are allowed only for floating-layer tokens such as modal/popover/dropdown/drawer/overlay (--shadow-sm: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-md: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-lg: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-2xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.2)).",
+    "[html-quality] report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] report.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "repairPlanHints": [
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "report.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    }
+  ],
+  "repairActionTable": [],
+  "errorCount": 0,
+  "warningCount": 6,
+  "errors": [],
+  "warnings": [
+    "[orchestration-summary] runtime-orchestration-summary.json is missing skillProvenance.name/version/version_source. Version provenance will be reported as observed_unknown by external evaluators.",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--barbie-secondary, --barbie-secondary-foreground, --barbie-accent, --barbie-accent-foreground, --secondary, --secondary-foreground, --accent, --accent-foreground). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] colors_and_type.css: free-explore radius tokens must stay within the restrained 2/4/8/12/16px scale; oversized or forbidden radius tokens found (--radius-md: 20px, --radius-lg: 28.8px). Do not use 20px+ radii unless the user explicitly requested large rounded shapes.",
+    "[html-quality] colors_and_type.css: ordinary/static shadow tokens must keep every shadow alpha <= 0.05; deeper shadows are allowed only for floating-layer tokens such as modal/popover/dropdown/drawer/overlay (--shadow-sm: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-md: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-lg: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08), --shadow-2xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.2)).",
+    "[html-quality] report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] report.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "validationRunDisciplineStatus": {
+    "declared": true,
+    "restoreMode": false,
+    "maxFullValidationRuns": 2,
+    "validationHistoryCount": 0,
+    "repairLedgerCount": 0,
+    "softWarningsTriggerRepair": false,
+    "terminalState": null,
+    "nextAction": null,
+    "violations": [],
+    "success": true
+  },
+  "terminalState": null,
+  "nextCheck": {
+    "type": "finish-readiness",
+    "command": "node \"c:\\Users\\lenovo\\.trae-cn\\builtin\\design\\hebe\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-redesign\" --check=all",
+    "fullValidationAllowed": false,
+    "reason": "workspace validation passed; run complete finish readiness before final delivery"
+  },
+  "repairBatch": [],
+  "repairContextPacket": {
+    "schema_version": "1.0",
+    "purpose": "small-context repair packet; read this before full validation-report.json",
+    "success": true,
+    "terminalState": null,
+    "skillProvenance": {
+      "name": "solo-design",
+      "version": "2025.07.25",
+      "version_source": "unknown",
+      "runtime_skill_dir": null,
+      "recorded_at": null,
+      "expected_version": "2026.07.22.00.00.00",
+      "status": "mismatch",
+      "read_status": "ok"
+    },
+    "renderBlockingErrorCount": 0,
+    "softWarningCount": 6,
+    "renderBlockingErrors": [],
+    "repairActionTable": [],
+    "nextCheck": {
+      "type": "finish-readiness",
+      "command": "node \"c:\\Users\\lenovo\\.trae-cn\\builtin\\design\\hebe\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-redesign\" --check=all",
+      "fullValidationAllowed": false,
+      "reason": "workspace validation passed; run complete finish readiness before final delivery"
+    },
+    "forbidden": [
+      "do not read validator source",
+      "do not rerun full validation when nextCheck.fullValidationAllowed=false",
+      "do not start preview/browser unless user explicitly asks",
+      "do not hand-edit repair ledger fields"
+    ]
+  },
+  "projectFileHashes": {
+    "posture-tracker-redesign.design": "df6f313c061582299cb08ad1483dafb4b2c89388e7dcf20973ad2899273351b2",
+    "colors_and_type.css": "190887e69bd2e5094577d145bd56575c6f748fc216c7cc471928ea22d265ff40",
+    "runtime-orchestration-summary.json": "537964e99e7708bba1ec482f9c07066e52f7bccef8927c462de6367ea99b1b45",
+    "pages/report.html": "d3f1c1460f84430a7dd354de838a329c290df46ade1386d4e4802ebf2b3b6547",
+    "assets/report-hero.jpg": "01466480b52be3df79bc4aa23667795b10919741d9c544ca7f0cf7c77deaec4c"
+  },
+  "designDir": "c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-redesign",
+  "expectedPages": 1,
+  "requireInteractions": null,
+  "checkedAt": "2026-07-24T16:45:09.244Z"
+}

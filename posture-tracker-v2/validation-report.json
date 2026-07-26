@@ -1,0 +1,409 @@
+{
+  "success": false,
+  "outcome": "validation_failed",
+  "repairable": true,
+  "terminalViolations": [],
+  "terminalBlockingSummary": null,
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "2026.07.22.00.00.00",
+    "version_source": "skill-release-manifest.json",
+    "runtime_skill_dir": null,
+    "recorded_at": null,
+    "expected_version": "2026.07.22.00.00.00",
+    "status": "matched",
+    "read_status": "loaded"
+  },
+  "operatingMode": "free-explore",
+  "renderBlockingErrorCount": 4,
+  "softWarningCount": 14,
+  "renderBlockingErrors": [
+    "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments."
+  ],
+  "errorSignatures": [
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "normalized": "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "signature": "eab2a67cf95ca7d31c5b7b73e7047727ebfdbc3cfa1c4ae407ffb880ab870274"
+    },
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "normalized": "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "signature": "39ad4efd92fb5d90c5b0bff75246377f475ddde8484eabebbe7d0459d4904c4f"
+    },
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "normalized": "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "signature": "9a0bbe5666211161369e8093f57bb8f79b0c050aae89a5fe56201329b2895750"
+    },
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "normalized": "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "signature": "9b113586310e15535a7a73a70e65bb302b552e5734a522a11ba04280a906f5c8"
+    }
+  ],
+  "softWarnings": [
+    "[html-head-style] assessment-detail.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[html-head-style] login.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[html-head-style] members.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[mobile-bottom-overlay] pages/index.html: bottom fixed/absolute CTA or navigation found. Ensure it has safe-area spacing and does not cover content. Evidence: style=\"\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        height: 64px;\n        background: var(--color-card);\n        bord",
+    "[mobile-bottom-overlay] pages/profile.html: bottom fixed/absolute CTA or navigation found. Ensure it has safe-area spacing and does not cover content. Evidence: style=\"\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        height: 64px;\n        background: var(--color-card);\n        bord",
+    "[mobile-navigation-consistency] 6 mobile page(s) do not expose a 3+ item data-nav-key nav cluster while sibling pages do. This is acceptable for detail/reward/modal pages only when planned explicitly.",
+    "[html-quality] assessment-create.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] assessment-detail.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] h5-report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] index.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] member-detail.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] members.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] profile.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference."
+  ],
+  "repairPlanHints": [
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "owner": "main-agent",
+      "repairScope": "all-pages-with-mobile-nav",
+      "strategy": "run_repair_mobile_navigation_once",
+      "affectedFiles": [
+        "pages/index.html"
+      ],
+      "repairReportPath": "mobile-nav-repair-report.json",
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 3
+    },
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "owner": "main-agent",
+      "repairScope": "all-pages-with-mobile-nav",
+      "strategy": "run_repair_mobile_navigation_once",
+      "affectedFiles": [
+        "pages/members.html"
+      ],
+      "repairReportPath": "mobile-nav-repair-report.json",
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 3
+    },
+    {
+      "errorClass": "mobile-navigation-consistency",
+      "owner": "main-agent",
+      "repairScope": "all-pages-with-mobile-nav",
+      "strategy": "run_repair_mobile_navigation_once",
+      "affectedFiles": [
+        "pages/profile.html"
+      ],
+      "repairReportPath": "mobile-nav-repair-report.json",
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 3
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "assessment-create.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "assessment-detail.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "h5-report.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "index.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "member-detail.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "members.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "profile.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "report.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    }
+  ],
+  "repairActionTable": [
+    {
+      "error": "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    }
+  ],
+  "errorCount": 4,
+  "warningCount": 14,
+  "errors": [
+    "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+    "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments."
+  ],
+  "warnings": [
+    "[html-head-style] assessment-detail.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[html-head-style] login.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[html-head-style] members.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[mobile-bottom-overlay] pages/index.html: bottom fixed/absolute CTA or navigation found. Ensure it has safe-area spacing and does not cover content. Evidence: style=\"\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        height: 64px;\n        background: var(--color-card);\n        bord",
+    "[mobile-bottom-overlay] pages/profile.html: bottom fixed/absolute CTA or navigation found. Ensure it has safe-area spacing and does not cover content. Evidence: style=\"\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        height: 64px;\n        background: var(--color-card);\n        bord",
+    "[mobile-navigation-consistency] 6 mobile page(s) do not expose a 3+ item data-nav-key nav cluster while sibling pages do. This is acceptable for detail/reward/modal pages only when planned explicitly.",
+    "[html-quality] assessment-create.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] assessment-detail.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] h5-report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] index.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] member-detail.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] members.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] profile.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] report.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference."
+  ],
+  "validationRunDisciplineStatus": {
+    "declared": true,
+    "restoreMode": false,
+    "maxFullValidationRuns": 2,
+    "validationHistoryCount": 0,
+    "repairLedgerCount": 0,
+    "softWarningsTriggerRepair": false,
+    "terminalState": null,
+    "nextAction": null,
+    "violations": [],
+    "success": true
+  },
+  "terminalState": null,
+  "nextCheck": {
+    "type": "full",
+    "command": "node \"c:\\Users\\lenovo\\.trae-cn\\builtin\\design\\hebe\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs\" \"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-v2\" --report-json=\"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-v2\\validation-report.json\"",
+    "fullValidationAllowed": true,
+    "reason": "no narrower deterministic targeted check is available for the current failure class"
+  },
+  "repairBatch": [
+    {
+      "error": "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    },
+    {
+      "error": "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "errorClass": "unknown-blocking",
+      "severity": "blocking",
+      "action": "read validation report, classify owner, then use the narrowest targeted repair",
+      "owner": "main-agent",
+      "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+    }
+  ],
+  "repairContextPacket": {
+    "schema_version": "1.0",
+    "purpose": "small-context repair packet; read this before full validation-report.json",
+    "success": false,
+    "terminalState": null,
+    "skillProvenance": {
+      "name": "solo-design",
+      "version": "2026.07.22.00.00.00",
+      "version_source": "skill-release-manifest.json",
+      "runtime_skill_dir": null,
+      "recorded_at": null,
+      "expected_version": "2026.07.22.00.00.00",
+      "status": "matched",
+      "read_status": "loaded"
+    },
+    "renderBlockingErrorCount": 4,
+    "softWarningCount": 14,
+    "renderBlockingErrors": [
+      "[mobile-navigation-consistency] pages/index.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "[mobile-navigation-consistency] pages/members.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "[mobile-navigation-consistency] pages/profile.html: mobile nav labels must include whitespace-nowrap/truncate so Chinese tab labels do not wrap. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments.",
+      "[mobile-navigation-consistency] mobile pages with global nav must keep the same data-nav-key item order, positioning, height, and structural geometry. pages/index.html: home|members|profile::fixed::64::tag=a::item=active.tab-item|tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/members.html: home|members|profile::flow::auto::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false; pages/profile.html: home|members|profile::fixed::64::tag=a::item=tab-item|active.tab-item::icon=::nowrap=false::grid=none::max=false::full=false/false. Use data-dom-id only for click wiring. Repair: rebuild the Page Packet with Mobile Navigation Contract and copy canonicalNavHtml. If this is post-validation repair, run repair-mobile-navigation-flow.mjs once; do not patch individual span/data-dom-id/class fragments."
+    ],
+    "repairActionTable": [
+      {
+        "errorClass": "unknown-blocking",
+        "owner": "main-agent",
+        "severity": "blocking",
+        "action": "read validation report, classify owner, then use the narrowest targeted repair",
+        "affectedFiles": [],
+        "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+      },
+      {
+        "errorClass": "unknown-blocking",
+        "owner": "main-agent",
+        "severity": "blocking",
+        "action": "read validation report, classify owner, then use the narrowest targeted repair",
+        "affectedFiles": [],
+        "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+      },
+      {
+        "errorClass": "unknown-blocking",
+        "owner": "main-agent",
+        "severity": "blocking",
+        "action": "read validation report, classify owner, then use the narrowest targeted repair",
+        "affectedFiles": [],
+        "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+      },
+      {
+        "errorClass": "unknown-blocking",
+        "owner": "main-agent",
+        "severity": "blocking",
+        "action": "read validation report, classify owner, then use the narrowest targeted repair",
+        "affectedFiles": [],
+        "sourceReadPolicy": "no validator source read; targeted affected-file excerpt only"
+      }
+    ],
+    "nextCheck": {
+      "type": "full",
+      "command": "node \"c:\\Users\\lenovo\\.trae-cn\\builtin\\design\\hebe\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs\" \"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-v2\" --report-json=\"c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-v2\\validation-report.json\"",
+      "fullValidationAllowed": true,
+      "reason": "no narrower deterministic targeted check is available for the current failure class"
+    },
+    "forbidden": [
+      "do not read validator source",
+      "do not rerun full validation when nextCheck.fullValidationAllowed=false",
+      "do not start preview/browser unless user explicitly asks",
+      "do not hand-edit repair ledger fields"
+    ]
+  },
+  "projectFileHashes": {
+    "posture-tracker-v2.design": "5177b9ad186f753624a599a0ad71c536414eb74db11e19bfa6e061562491c275",
+    "colors_and_type.css": "c66f4208fd9314fe9a845e4fc46d65f7a66a7362bf64b6fa73aed44cfcbb859e",
+    "runtime-orchestration-summary.json": "e2266b4f7f23d04af86435b239f773a4006a739300c7799298aeae071d8ff734",
+    "pages/assessment-create.html": "8c96f9b9f0b3b460775eab1d621245b0735fcf0718d2c4d5be85afe424518219",
+    "pages/assessment-detail.html": "034a59459ac43a54bca9a3aa1630157b6b116926b7bce2620b09577d5800c701",
+    "pages/h5-report.html": "c808c67d9ec26b4d6c56da4553f59b6f1788de5d96ed238b75f799be34b84cd8",
+    "pages/index.html": "6b8abab29bdc19e57edcaeb3a4f27fba7e313628700d7f47d127d8eacff825ed",
+    "pages/login.html": "aa611765b93a29bd2320382228a521a62d980992c7b9caa2b161602b095ceebf",
+    "pages/member-detail.html": "b43f2b0e309aaa1b6a97f453865cc67a77245631c9769cbf72abb1b82b624ef1",
+    "pages/members.html": "d857e148f4e786fd097024c73689f06b033d3242131758a23a01fb4f512903cd",
+    "pages/profile.html": "e704139134e7a792b0122079861d775a677a2121040f52538a1b51c0835deb2c",
+    "pages/report.html": "b7187bc67e44b84fbf70cab53ba5e110b46356362996c65bf9153d96d6428d71",
+    "assets/hero-pilates.jpg": "6faf0e834e125a531281c4abb62dd6cc1abaeeb7832dd7dcccc62257aabaccb7"
+  },
+  "designDir": "c:\\Users\\lenovo\\Desktop\\普拉提\\posture-tracker-v2",
+  "expectedPages": 9,
+  "requireInteractions": null,
+  "checkedAt": "2026-07-24T17:45:43.908Z"
+}

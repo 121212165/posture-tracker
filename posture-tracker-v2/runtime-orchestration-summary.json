@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "2026.07.22.00.00.00",
+    "version_source": "skill-release-manifest.json",
+    "schema_version": "1.0",
+    "release": "prompt-base-cloud-ssot-migration",
+    "read_status": "loaded"
+  },
+  "project": {
+    "resolvedLane": "complex_html_page",
+    "operation": "create",
+    "deviceType": "mobile",
+    "cssPreflightEvidence": {
+      "prefixMode": "standard",
+      "brandPrefix": "color",
+      "preflightExitCode": 0,
+      "preflightFile": ".preflight/preflight.html"
+    },
+    "selectedIntentWorkflowRead": true,
+    "contextRequirementsLoaded": [
+      { "path": "intent-workflows/intent-project-complex-build/INTENT_WORKFLOW.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "shared-runtime/design-artifact-formats/design-project-file-format.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "intent-workflows/intent-project-complex-build/complex-page-runtime.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "intent-workflows/intent-project-complex-build/complex-page-dispatch-contract.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "shared-runtime/orchestration-summary-contract/orchestration-summary-contract.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "intent-workflows/intent-project-complex-build/00-requirement-and-style-intake.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "intent-workflows/intent-project-complex-build/orchestration-summary-fields.md", "readStatus": "loaded", "bodyRead": true }
+    ],
+    "contextReadScope": "complex-build multi-page mobile",
+    "validationRunDiscipline": {
+      "maxFullValidationRuns": 2,
+      "softWarningsTriggerRepair": false,
+      "blockingRepairMode": "targeted-once",
+      "forbiddenRepairTriggers": ["soft-warning-only", "style-warning-only"]
+    },
+    "lowValueCallWatchdog": {
+      "noProgressNextAction": "proceed to readiness"
+    },
+    "designRead": "mobile-app / pilates-coach / professional-warm / medium-density / clutter-avoidance",
+    "designDials": {
+      "layoutVariance": 3,
+      "motionIntensity": 1,
+      "visualDensity": 3
+    },
+    "styleDefinitionBrief": "Pilates professional studio: warm rose primary with stone neutrals, clean card layouts, restrained shadows, Chinese-first typography.",
+    "mobileNavigation": {
+      "applies": true,
+      "type": "bottom-tab",
+      "items": [
+        { "key": "home", "label": "首页", "icon": "home" },
+        { "key": "members", "label": "学员", "icon": "users" },
+        { "key": "profile", "label": "我的", "icon": "user" }
+      ],
+      "heightPx": 56,
+      "position": "flow-bottom",
+      "activeState": "primary icon+label color only; geometry stays identical"
+    },
+    "generationTree": {
+      "mode": "flat",
+      "leaves": [
+        "page-login", "page-index", "page-members", "page-member-detail",
+        "page-assessment-create", "page-assessment-detail", "page-report",
+        "page-profile", "page-h5-report"
+      ]
+    },
+    "expectedDispatches": [],
+    "dispatchPreflightManifest": [],
+    "validationHistory": []
+  },
+  "designSource": {
+    "operatingMode": "free-explore",
+    "cssFilePath": "colors_and_type.css",
+    "styleConstraints": {
+      "radiusMax": 12,
+      "staticShadowAlphaMax": 0.05,
+      "brandPrefix": "color",
+      "allowedHueCount": 1
+    }
+  },
+  "pages": [
+    {
+      "nodeId": "page-login",
+      "htmlSrc": "pages/login.html",
+      "title": "登录",
+      "pageIndex": 1,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "auth-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-index",
+      "htmlSrc": "pages/index.html",
+      "title": "首页",
+      "pageIndex": 2,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "dashboard",
+      "mobileNavigationActiveKey": "home",
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-members",
+      "htmlSrc": "pages/members.html",
+      "title": "学员列表",
+      "pageIndex": 3,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "list-screen",
+      "mobileNavigationActiveKey": "members",
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-member-detail",
+      "htmlSrc": "pages/member-detail.html",
+      "title": "学员详情",
+      "pageIndex": 4,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "detail-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-assessment-create",
+      "htmlSrc": "pages/assessment-create.html",
+      "title": "新建评估",
+      "pageIndex": 5,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "form-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-assessment-detail",
+      "htmlSrc": "pages/assessment-detail.html",
+      "title": "评估详情",
+      "pageIndex": 6,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "detail-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-report",
+      "htmlSrc": "pages/report.html",
+      "title": "评估报告",
+      "pageIndex": 7,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "data-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-profile",
+      "htmlSrc": "pages/profile.html",
+      "title": "个人中心",
+      "pageIndex": 8,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "settings-screen",
+      "mobileNavigationActiveKey": "profile",
+      "status": "pending"
+    },
+    {
+      "nodeId": "page-h5-report",
+      "htmlSrc": "pages/h5-report.html",
+      "title": "H5学员报告",
+      "pageIndex": 9,
+      "deviceType": "mobile",
+      "viewportMode": "document-scroll",
+      "pageType": "report-screen",
+      "mobileNavigationActiveKey": null,
+      "status": "pending"
+    }
+  ]
+}

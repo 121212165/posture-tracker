@@ -1,0 +1,136 @@
+<view class="container" wx:if="{{member}}">
+  <!-- 学员信息 -->
+  <view class="member-header">
+    <view class="member-avatar">
+      <text>{{member.name.charAt(0)}}</text>
+    </view>
+    <view class="member-info">
+      <text class="member-name">{{member.name}}</text>
+      <text class="member-meta" wx:if="{{summary.totalAssessments > 0}}">共 {{summary.totalAssessments}} 次评估</text>
+      <text class="member-meta" wx:else>暂无评估记录</text>
+    </view>
+  </view>
+
+  <!-- 指标切换 -->
+  <scroll-view scroll-x class="metric-tabs">
+    <view
+      class="metric-tab {{activeMetric === item.key ? 'active' : ''}}"
+      wx:for="{{metricConfigs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onMetricChange"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 趋势图 -->
+  <view class="card" wx:if="{{chartData.length > 0}}">
+    <view class="card-title">趋势变化</view>
+    <view class="chart-container">
+      <!-- Y 轴 -->
+      <view class="y-axis">
+        <text class="y-label">{{chartRange.max}}</text>
+        <text class="y-label">{{(chartRange.min + chartRange.max) / 2}}</text>
+        <text class="y-label">{{chartRange.min}}</text>
+      </view>
+      <!-- 折线图（SVG） -->
+      <view class="chart-area">
+        <view
+          class="chart-line"
+          style="background: linear-gradient(to right, {{chartData.length > 0 ? '#ec4899' : 'transparent'}} 100%, transparent);"
+          wx:if="{{chartData.length >= 2}}"
+        >
+        </view>
+        <!-- 数据点 -->
+        <view class="data-points">
+          <view
+            class="data-point"
+            wx:for="{{chartData}}"
+            wx:key="date"
+            style="left: {{index * (100 / (chartData.length - 1))}}%; bottom: {{(item.value - chartRange.min) / (chartRange.max - chartRange.min) * 100}}%;"
+          >
+            <view class="point-dot"></view>
+            <text class="point-value">{{item.value}}</text>
+            <text class="point-date">{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-chart card" wx:elif="{{summary.totalAssessments > 0}}">
+    <text class="empty-icon">📊</text>
+    <text class="empty-text">该指标暂无数据</text>
+  </view>
+
+  <!-- 改善摘要 -->
+  <view class="card" wx:if="{{summary.improvement}}">
+    <view class="card-title">改善情况</view>
+    <view class="improvement-row">
+      <text class="improvement-label">综合评分</text>
+      <text class="improvement-value {{summary.improvement.overallScore >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.overallScore >= 0 ? '+' : ''}}{{summary.improvement.overallScore}} 分
+      </text>
+    </view>
+    <view class="improvement-row">
+      <text class="improvement-label">圆肩角</text>
+      <text class="improvement-value {{summary.improvement.shoulderRoundness >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.shoulderRoundness >= 0 ? '+' : ''}}{{summary.improvement.shoulderRoundness}} °
+        <text class="improvement-hint">{{summary.improvement.shoulderRoundness > 0 ? '↓ 改善' : '↑ 加重'}}</text>
+      </text>
+    </view>
+    <view class="improvement-row">
+      <text class="improvement-label">头前伸</text>
+      <text class="improvement-value {{summary.improvement.headForward >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.headForward >= 0 ? '+' : ''}}{{summary.improvement.headForward}} cm
+        <text class="improvement-hint">{{summary.improvement.headForward > 0 ? '↓ 改善' : '↑ 加重'}}</text>
+      </text>
+    </view>
+    <view class="improvement-row">
+      <text class="improvement-label">骨盆倾斜</text>
+      <text class="improvement-value {{summary.improvement.pelvicTilt >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.pelvicTilt >= 0 ? '+' : ''}}{{summary.improvement.pelvicTilt}} °
+        <text class="improvement-hint">{{summary.improvement.pelvicTilt > 0 ? '↓ 改善' : '↑ 加重'}}</text>
+      </text>
+    </view>
+    <view class="improvement-row">
+      <text class="improvement-label">高低肩</text>
+      <text class="improvement-value {{summary.improvement.shoulderDiff >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.shoulderDiff >= 0 ? '+' : ''}}{{summary.improvement.shoulderDiff}} cm
+        <text class="improvement-hint">{{summary.improvement.shoulderDiff > 0 ? '↓ 改善' : '↑ 加重'}}</text>
+      </text>
+    </view>
+    <view class="improvement-row">
+      <text class="improvement-label">膝超伸</text>
+      <text class="improvement-value {{summary.improvement.kneeHyperextension >= 0 ? 'positive' : 'negative'}}">
+        {{summary.improvement.kneeHyperextension >= 0 ? '+' : ''}}{{summary.improvement.kneeHyperextension}} °
+        <text class="improvement-hint">{{summary.improvement.kneeHyperextension > 0 ? '↓ 改善' : '↑ 加重'}}</text>
+      </text>
+    </view>
+  </view>
+
+  <!-- 评估时间线 -->
+  <view class="card" wx:if="{{trend.length > 0}}">
+    <view class="card-title">评估历史</view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{trend}}" wx:key="assessmentId">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <text class="timeline-date">{{item.date}}</text>
+          <text class="timeline-type">{{item.type === 'INITIAL' ? '初始评估' : '复评'}}</text>
+          <text class="timeline-score" wx:if="{{item.metrics}}">综合评分: {{item.metrics.overallScore}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{summary.totalAssessments === 0}}">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无评估数据</text>
+  </view>
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

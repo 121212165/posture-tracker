@@ -1,0 +1,50 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 64rpx;
+  background: linear-gradient(180deg, #fdf2f8 0%, #f9fafb 100%);
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 120rpx;
+}
+
+.logo-icon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.app-name {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16rpx;
+}
+
+.app-desc {
+  font-size: 28rpx;
+  color: #9ca3af;
+}
+
+.login-btn-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-bottom: 32rpx;
+}
+
+.agreement-text {
+  font-size: 22rpx;
+  color: #d1d5db;
+}

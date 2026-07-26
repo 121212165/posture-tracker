@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PlanType {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+enum CoachRole {
+  OWNER
+  COACH
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum AssessmentType {
+  INITIAL
+  FOLLOW_UP
+}
+
+enum AssessmentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Studio {
+  id           String       @id @default(cuid())
+  name         String
+  logoUrl      String?
+  plan         PlanType     @default(FREE)
+  contactPhone String?
+  address      String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  coaches      Coach[]
+  members      Member[]
+  assessments  Assessment[]
+}
+
+model Coach {
+  id          String       @id @default(cuid())
+  studioId    String
+  openid      String       @unique
+  unionid     String?
+  name        String?
+  avatarUrl   String?
+  phone       String?
+  role        CoachRole    @default(COACH)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  studio      Studio       @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  assessments Assessment[]
+}
+
+model Member {
+  id          String       @id @default(cuid())
+  studioId    String
+  name        String
+  phone       String?
+  gender      Gender?
+  ageRange    String?
+  notes       String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deletedAt   DateTime?
+  studio      Studio       @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  assessments Assessment[]
+
+  @@index([studioId, deletedAt])
+}
+
+model Assessment {
+  id               String           @id @default(cuid())
+  studioId         String
+  coachId          String
+  memberId         String
+  type             AssessmentType
+  photoFrontKey    String?
+  photoSideKey     String?
+  annotatedImageKey String?
+  keypointsJson    Json?
+  qualityScore     Float?
+  status           AssessmentStatus @default(PENDING)
+  errorMessage     String?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  deletedAt        DateTime?
+  studio           Studio           @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  coach            Coach            @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  member           Member           @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  metrics          Metrics?
+  report           Report?
+
+  @@index([memberId, createdAt])
+  @@index([studioId, status, createdAt])
+}
+
+model Metrics {
+  id                 String     @id @default(cuid())
+  assessmentId       String     @unique
+  shoulderRoundness  Float
+  headForward        Float
+  pelvicTilt         Float
+  shoulderDiff       Float
+  kneeHyperextension Float
+  overallScore       Float
+  createdAt          DateTime   @default(now())
+  assessment         Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+}
+
+model Report {
+  id           String     @id @default(cuid())
+  assessmentId String     @unique
+  h5Url        String
+  pdfUrl       String?
+  qrCodeUrl    String
+  shareToken   String     @unique
+  createdAt    DateTime   @default(now())
+  assessment   Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+}

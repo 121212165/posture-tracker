@@ -1,0 +1,57 @@
+<view class="container">
+  <!-- 选择学员 -->
+  <view class="card">
+    <text class="card-title">选择学员</text>
+    <picker mode="selector" range="{{members}}" range-key="name" bindchange="onMemberChange">
+      <view class="picker-value">
+        <text wx:if="{{selectedMemberId}}">{{members[members.findIndex(m => m.id === selectedMemberId)].name}}</text>
+        <text wx:else class="placeholder">请选择学员</text>
+        <text class="arrow">›</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 评估类型 -->
+  <view class="card">
+    <text class="card-title">评估类型</text>
+    <radio-group bindchange="onTypeChange">
+      <label class="radio-item">
+        <radio value="0" checked="{{assessmentType === 'INITIAL'}}" color="#ec4899" />
+        <text>初始评估</text>
+      </label>
+      <label class="radio-item">
+        <radio value="1" checked="{{assessmentType === 'FOLLOW_UP'}}" color="#ec4899" />
+        <text>复评</text>
+      </label>
+    </radio-group>
+  </view>
+
+  <!-- 上传照片 -->
+  <view class="card">
+    <text class="card-title">上传体态照片</text>
+    <view class="photo-grid">
+      <view class="photo-item" bindtap="choosePhoto" data-type="front">
+        <image wx:if="{{photoFront}}" src="{{photoFront}}" mode="aspectFill" class="photo-preview" />
+        <view wx:else class="photo-placeholder">
+          <text class="photo-icon">📸</text>
+          <text class="photo-label">正面照</text>
+        </view>
+        <view wx:if="{{photoFront}}" class="photo-remove" catchtap="removePhoto" data-type="front">✕</view>
+      </view>
+      <view class="photo-item" bindtap="choosePhoto" data-type="side">
+        <image wx:if="{{photoSide}}" src="{{photoSide}}" mode="aspectFill" class="photo-preview" />
+        <view wx:else class="photo-placeholder">
+          <text class="photo-icon">📸</text>
+          <text class="photo-label">侧面照</text>
+        </view>
+        <view wx:if="{{photoSide}}" class="photo-remove" catchtap="removePhoto" data-type="side">✕</view>
+      </view>
+    </view>
+    <text class="photo-tip">建议：穿着紧身衣物，自然站立，正面和侧面各拍一张</text>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="btn-primary submit-btn" bindtap="handleSubmit" loading="{{submitting}}" disabled="{{submitting}}">
+    {{submitting ? '提交中...' : '开始AI体态分析'}}
+  </button>
+</view>

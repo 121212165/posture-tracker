@@ -1,0 +1,108 @@
+.card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24rpx;
+}
+
+.picker-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 0;
+}
+
+.placeholder {
+  color: #d1d5db;
+}
+
+.arrow {
+  font-size: 40rpx;
+  color: #d1d5db;
+}
+
+.radio-group {
+  display: flex;
+  gap: 48rpx;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 28rpx;
+}
+
+.photo-grid {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.photo-item {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.photo-icon {
+  font-size: 56rpx;
+}
+
+.photo-label {
+  font-size: 24rpx;
+  color: #9ca3af;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-remove {
+  position: absolute;
+  top: 12rpx;
+  right: 12rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+.photo-tip {
+  font-size: 22rpx;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.submit-btn {
+  margin-top: 16rpx;
+  width: 100%;
+}

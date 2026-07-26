@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索学员姓名或手机号"
+      value="{{keyword}}"
+      bindinput="onSearch"
+    />
+  </view>
+
+  <view class="member-list">
+    <view class="member-card" wx:for="{{members}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="member-avatar">
+        <text>{{item.name.charAt(0)}}</text>
+      </view>
+      <view class="member-info">
+        <text class="member-name">{{item.name}}</text>
+        <text class="member-meta" wx:if="{{item.phone}}">{{item.phone}}</text>
+        <text class="member-meta" wx:else>未设置手机号</text>
+      </view>
+      <view class="member-stats">
+        <text class="assessment-count">{{item._count.assessments}}</text>
+        <text class="assessment-label">次评估</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!loading && members.length === 0}}">
+    <text class="empty-icon">👥</text>
+    <text class="empty-text">暂无学员</text>
+  </view>
+
+  <view class="loading-more" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体态评估报告 - 美丽普拉提工作室</title>
+    <style id="theme-vars">
+:root {
+  /* Background colors */
+  --color-bg-background: #ffffff;
+  --color-bg-card: #fffafc;
+  --color-bg-popover: #ffffff;
+  --color-bg-muted: #ffebf3;
+
+  /* Text colors */
+  --color-text-foreground: #310015;
+  --color-text-card-foreground: #310015;
+  --color-text-popover-foreground: #310015;
+  --color-text-primary-foreground: #ffffff;
+  --color-text-secondary-foreground: #c2185b;
+  --color-text-muted-foreground: #d60072;
+  --color-text-accent-foreground: #ffffff;
+  --color-text-destructive-foreground: #ffffff;
+
+  /* Accent colors */
+  --color-accent-primary: #e91e63;
+  --color-accent-secondary: #fce4ec;
+  --color-accent-accent: #ff9ec5;
+  --color-accent-ring: #e91e63;
+  --color-accent-input: #fce4ec;
+
+  /* Border */
+  --color-border-border: #fce4ec;
+
+  /* Status */
+  --color-status-destructive: #d50000;
+
+  /* Chart */
+  --color-chart-chart-1: #e91e63;
+  --color-chart-chart-2: #c2185b;
+  --color-chart-chart-3: #f06292;
+  --color-chart-chart-4: #ad1457;
+  --color-chart-chart-5: #880e4f;
+
+  /* Semantic aliases */
+  --background: #ffffff;
+  --foreground: #310015;
+  --card: #fffafc;
+  --card-foreground: #310015;
+  --popover: #ffffff;
+  --popover-foreground: #310015;
+  --primary: #e91e63;
+  --primary-foreground: #ffffff;
+  --secondary: #fce4ec;
+  --secondary-foreground: #c2185b;
+  --accent: #ff9ec5;
+  --accent-foreground: #ffffff;
+  --muted: #ffebf3;
+  --muted-foreground: #d60072;
+  --destructive: #d50000;
+  --destructive-foreground: #ffffff;
+  --border: #fce4ec;
+  --input: #fce4ec;
+  --ring: #e91e63;
+
+  /* Font families */
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-2xs: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.04);
+  --shadow-xs: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.04);
+  --shadow-sm: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-md: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-lg: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.08);
+  --shadow-2xl: 0px 5.5px 12.5px 0px rgba(255, 0, 89, 0.2);
+
+  /* Radius */
+  --radius: 28.8px;
+  --radius-sm: 14.4px;
+  --radius-md: 20px;
+  --radius-lg: 28.8px;
+
+  /* Spacing */
+  --spacing: 4px;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-lg: var(--radius-lg);
+  }
+  @layer base {
+    body { background: var(--background); color: var(--foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--background); }
+      .text-background { color: var(--background); }
+      .border-background { border-color: var(--background); }
+      .ring-background { --tw-ring-color: var(--background); }
+      .bg-foreground { background-color: var(--foreground); }
+      .text-foreground { color: var(--foreground); }
+      .border-foreground { border-color: var(--foreground); }
+      .ring-foreground { --tw-ring-color: var(--foreground); }
+      .bg-card { background-color: var(--card); }
+      .text-card { color: var(--card); }
+      .border-card { border-color: var(--card); }
+      .ring-card { --tw-ring-color: var(--card); }
+      .bg-card-foreground { background-color: var(--card-foreground); }
+      .text-card-foreground { color: var(--card-foreground); }
+      .border-card-foreground { border-color: var(--card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--card-foreground); }
+      .bg-popover { background-color: var(--popover); }
+      .text-popover { color: var(--popover); }
+      .border-popover { border-color: var(--popover); }
+      .ring-popover { --tw-ring-color: var(--popover); }
+      .bg-popover-foreground { background-color: var(--popover-foreground); }
+      .text-popover-foreground { color: var(--popover-foreground); }
+      .border-popover-foreground { border-color: var(--popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--popover-foreground); }
+      .bg-primary { background-color: var(--primary); }
+      .text-primary { color: var(--primary); }
+      .border-primary { border-color: var(--primary); }
+      .ring-primary { --tw-ring-color: var(--primary); }
+      .bg-primary-foreground { background-color: var(--primary-foreground); }
+      .text-primary-foreground { color: var(--primary-foreground); }
+      .border-primary-foreground { border-color: var(--primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--primary-foreground); }
+      .bg-secondary { background-color: var(--secondary); }
+      .text-secondary { color: var(--secondary); }
+      .border-secondary { border-color: var(--secondary); }
+      .ring-secondary { --tw-ring-color: var(--secondary); }
+      .bg-secondary-foreground { background-color: var(--secondary-foreground); }
+      .text-secondary-foreground { color: var(--secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--secondary-foreground); }
+      .bg-muted { background-color: var(--muted); }
+      .text-muted { color: var(--muted); }
+      .border-muted { border-color: var(--muted); }
+      .ring-muted { --tw-ring-color: var(--muted); }
+      .bg-muted-foreground { background-color: var(--muted-foreground); }
+      .text-muted-foreground { color: var(--muted-foreground); }
+      .border-muted-foreground { border-color: var(--muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--muted-foreground); }
+      .bg-accent { background-color: var(--accent); }
+      .text-accent { color: var(--accent); }
+      .border-accent { border-color: var(--accent); }
+      .ring-accent { --tw-ring-color: var(--accent); }
+      .bg-accent-foreground { background-color: var(--accent-foreground); }
+      .text-accent-foreground { color: var(--accent-foreground); }
+      .border-accent-foreground { border-color: var(--accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--accent-foreground); }
+      .bg-destructive { background-color: var(--destructive); }
+      .text-destructive { color: var(--destructive); }
+      .border-destructive { border-color: var(--destructive); }
+      .ring-destructive { --tw-ring-color: var(--destructive); }
+      .bg-destructive-foreground { background-color: var(--destructive-foreground); }
+      .text-destructive-foreground { color: var(--destructive-foreground); }
+      .border-destructive-foreground { border-color: var(--destructive-foreground); }
+      .ring-destructive-foreground { --tw-ring-color: var(--destructive-foreground); }
+      .bg-border { background-color: var(--border); }
+      .text-border { color: var(--border); }
+      .border-border { border-color: var(--border); }
+      .ring-border { --tw-ring-color: var(--border); }
+      .bg-input { background-color: var(--input); }
+      .text-input { color: var(--input); }
+      .border-input { border-color: var(--input); }
+      .ring-input { --tw-ring-color: var(--input); }
+      .bg-ring { background-color: var(--ring); }
+      .text-ring { color: var(--ring); }
+      .border-ring { border-color: var(--ring); }
+      .ring-ring { --tw-ring-color: var(--ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body>
+  <style id="critical-layout">
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .page-container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--background);
+    }
+
+    /* Hero Header */
+    .hero-header {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), var(--chart-4));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+    }
+
+    .hero-header img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-studio-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    /* Card System */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .card:active {
+      transform: scale(0.99);
+    }
+
+    .card:focus-within {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted-foreground);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Student Info */
+    .student-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .info-item.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: var(--secondary-foreground);
+      font-weight: 500;
+    }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .assessment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--muted);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    /* Score Card */
+    .score-card-center {
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .score-ring {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+    }
+
+    .score-ring svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 10;
+    }
+
+    .score-ring-fill {
+      fill: none;
+      stroke: var(--status-warning);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 377;
+      stroke-dashoffset: 81;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .score-ring-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--foreground);
+      line-height: 1;
+      font-family: var(--font-sans);
+    }
+
+    .score-max {
+      font-size: 13px;
+      color: var(--muted-foreground);
+      font-weight: 500;
+    }
+
+    .score-level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--status-warning);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .score-description {
+      font-size: 13px;
+      color: var(--secondary-foreground);
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* Progress Bar */
+    .progress-bar-track {
+      width: 100%;
+      height: 8px;
+      background: var(--muted);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.8s ease;
+    }
+
+    /* Metric Items */
+    .metric-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.15s ease;
+    }
+
+    .metric-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .metric-item:first-child {
+      padding-top: 0;
+    }
+
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .metric-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--foreground);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .metric-name-en {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted-foreground);
+    }
+
+    .metric-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--foreground);
+    }
+
+    .metric-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 100px;
+      margin-bottom: 8px;
+    }
+
+    .metric-status.good {
+      background: rgba(74, 222, 128, 0.15);
+      color: #16a34a;
+    }
+
+    .metric-status.warning {
+      background: rgba(251, 191, 36, 0.15);
+      color: #b45309;
+    }
+
+    .metric-status.error {
+      background: rgba(248, 113, 113, 0.15);
+      color: #dc2626;
+    }
+
+    /* Radar Chart */
+    .radar-chart-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0;
+    }
+
+    .radar-chart-wrapper canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Suggestions */
+    .suggestion-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.15s ease;
+    }
+
+    .suggestion-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .suggestion-item:first-child {
+      padding-top: 0;
+    }
+
+    .suggestion-number {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .suggestion-content {
+      flex: 1;
+    }
+
+    .suggestion-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .suggestion-detail {
+      font-size: 12px;
+      color: var(--secondary-foreground);
+      line-height: 1.5;
+    }
+
+    .suggestion-item:hover {
+      background: var(--muted);
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 24px 20px 40px;
+      background: var(--muted);
+      margin-top: 16px;
+    }
+
+    .footer-studio {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .footer-disclaimer {
+      font-size: 11px;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--foreground);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Hover and focus for interactive */
+    a, button, [tabindex="0"] {
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    a:hover, button:hover {
+      opacity: 0.85;
+    }
+
+    a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    a:active, button:active {
+      transform: scale(0.97);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .score-ring-fill {
+        transition: none;
+        stroke-dashoffset: 81;
+      }
+      .progress-bar-fill {
+        transition: none;
+      }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar { width: 0; }
+  </style>
+
+  <div class="page-container">
+
+    <!-- 1. Hero Header -->
+    <header class="hero-header" data-dom-id="report-header">
+      <img src="../assets/report-hero.jpg" alt="体态评估报告封面" />
+      <div class="hero-overlay">
+        <div class="hero-studio-name">
+          <i data-lucide="heart" style="width:14px;height:14px;"></i>
+          美丽普拉提工作室
+        </div>
+        <h1 class="hero-title">体态评估报告</h1>
+      </div>
+    </header>
+
+    <!-- 2. Student Info Card -->
+    <div class="card" aria-label="学员信息">
+      <div class="card-label">
+        <i data-lucide="user" style="width:13px;height:13px;"></i>
+        学员信息
+      </div>
+      <div class="student-info-grid">
+        <div class="info-item full-width">
+          <span class="info-label">姓名</span>
+          <span class="info-value">张小美</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">评估日期</span>
+          <span class="info-value">2026年7月24日</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">评估类型</span>
+          <span class="assessment-badge">
+            <i data-lucide="activity" style="width:12px;height:12px;"></i>
+            初始评估
+          </span>
+        </div>
+        <div class="info-item full-width">
+          <span class="info-label">指导教练</span>
+          <span class="info-value">李教练</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Overall Score Card -->
+    <div class="card score-card-center" data-dom-id="score-card" aria-label="综合评分">
+      <div class="card-label" style="justify-content:center;">
+        <i data-lucide="target" style="width:13px;height:13px;"></i>
+        综合评分
+      </div>
+      <div class="score-ring" role="progressbar" aria-valuenow="78.5" aria-valuemin="0" aria-valuemax="100" aria-label="78.5分/满分100分">
+        <svg viewBox="0 0 140 140">
+          <circle class="score-ring-bg" cx="70" cy="70" r="60" />
+          <circle class="score-ring-fill" cx="70" cy="70" r="60" />
+        </svg>
+        <div class="score-ring-text">
+          <span class="score-number">78.5</span>
+          <span class="score-max">/ 100</span>
+        </div>
+      </div>
+      <div class="score-level-badge">
+        <i data-lucide="trending-up" style="width:16px;height:16px;"></i>
+        良好
+      </div>
+      <p class="score-description">整体体态状况处于良好水平，部分指标存在轻微偏差，建议通过针对性训练进一步改善。</p>
+      <div style="margin-top:16px;">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:78.5%;background:var(--status-warning);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Metrics Detail Card -->
+    <div class="card" data-dom-id="metrics-list" aria-label="体态指标详情">
+      <div class="card-label">
+        <i data-lucide="ruler" style="width:13px;height:13px;"></i>
+        体态指标详情
+      </div>
+
+      <!-- Metric: Shoulder Roundness -->
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">
+            圆肩程度
+            <span class="metric-name-en">Shoulder Roundness</span>
+          </span>
+          <span class="metric-value">22.3°</span>
+        </div>
+        <div class="metric-status warning">
+          <i data-lucide="alert-circle" style="width:11px;height:11px;"></i>
+          轻度异常
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:74%;background:var(--status-warning);"></div>
+        </div>
+      </div>
+
+      <!-- Metric: Forward Head -->
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">
+            头前伸
+            <span class="metric-name-en">Forward Head</span>
+          </span>
+          <span class="metric-value">5.8 cm</span>
+        </div>
+        <div class="metric-status good">
+          <i data-lucide="check-circle" style="width:11px;height:11px;"></i>
+          正常
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:58%;background:var(--status-good);"></div>
+        </div>
+      </div>
+
+      <!-- Metric: Pelvic Tilt -->
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">
+            骨盆倾斜
+            <span class="metric-name-en">Pelvic Tilt</span>
+          </span>
+          <span class="metric-value">12.1°</span>
+        </div>
+        <div class="metric-status warning">
+          <i data-lucide="alert-circle" style="width:11px;height:11px;"></i>
+          轻度异常
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:60%;background:var(--status-warning);"></div>
+        </div>
+      </div>
+
+      <!-- Metric: Shoulder Diff -->
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">
+            高低肩
+            <span class="metric-name-en">Shoulder Diff</span>
+          </span>
+          <span class="metric-value">1.2 cm</span>
+        </div>
+        <div class="metric-status good">
+          <i data-lucide="check-circle" style="width:11px;height:11px;"></i>
+          正常
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:40%;background:var(--status-good);"></div>
+        </div>
+      </div>
+
+      <!-- Metric: Knee Hyperextension -->
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">
+            膝盖过伸
+            <span class="metric-name-en">Knee Hyperextension</span>
+          </span>
+          <span class="metric-value">178.5°</span>
+        </div>
+        <div class="metric-status good">
+          <i data-lucide="check-circle" style="width:11px;height:11px;"></i>
+          正常
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width:89%;background:var(--status-good);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Radar Chart Section -->
+    <div class="card" data-dom-id="radar-chart" aria-label="体态雷达图">
+      <div class="card-label" style="justify-content:center;">
+        <i data-lucide="activity" style="width:13px;height:13px;"></i>
+        体态雷达图
+      </div>
+      <div class="radar-chart-wrapper">
+        <canvas id="radarCanvas" width="320" height="320" role="img" aria-label="五项体态指标雷达图"></canvas>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px;">
+        <span style="font-size:11px;color:var(--secondary-foreground);display:flex;align-items:center;gap:4px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--chart-1);display:inline-block;"></span>圆肩程度
+        </span>
+        <span style="font-size:11px;color:var(--secondary-foreground);display:flex;align-items:center;gap:4px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--chart-2);display:inline-block;"></span>头前伸
+        </span>
+        <span style="font-size:11px;color:var(--secondary-foreground);display:flex;align-items:center;gap:4px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--chart-3);display:inline-block;"></span>骨盆倾斜
+        </span>
+        <span style="font-size:11px;color:var(--secondary-foreground);display:flex;align-items:center;gap:4px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--chart-4);display:inline-block;"></span>高低肩
+        </span>
+        <span style="font-size:11px;color:var(--secondary-foreground);display:flex;align-items:center;gap:4px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--chart-5);display:inline-block;"></span>膝盖过伸
+        </span>
+      </div>
+    </div>
+
+    <!-- 6. Suggestions Card -->
+    <div class="card" data-dom-id="suggestions" aria-label="改善建议">
+      <div class="section-title">
+        <i data-lucide="lightbulb" style="width:18px;height:18px;color:var(--primary);"></i>
+        改善建议
+      </div>
+
+      <div class="suggestion-item">
+        <div class="suggestion-number">1</div>
+        <div class="suggestion-content">
+          <div class="suggestion-title">加强肩部后缩训练</div>
+          <div class="suggestion-detail">圆肩程度为22.3°，建议每日进行弹力带面拉和Y-T-W练习，每组15次，共3组。</div>
+        </div>
+      </div>
+
+      <div class="suggestion-item">
+        <div class="suggestion-number">2</div>
+        <div class="suggestion-content">
+          <div class="suggestion-title">骨盆稳定性训练</div>
+          <div class="suggestion-detail">骨盆倾斜12.1°，建议加强核心激活训练，如死虫式和骨盆时钟练习。</div>
+        </div>
+      </div>
+
+      <div class="suggestion-item">
+        <div class="suggestion-number">3</div>
+        <div class="suggestion-content">
+          <div class="suggestion-title">颈部深层屈肌强化</div>
+          <div class="suggestion-detail">头前伸5.8cm处于正常范围上限，建议进行chin tuck练习，维持颈椎中立位。</div>
+        </div>
+      </div>
+
+      <div class="suggestion-item">
+        <div class="suggestion-number">4</div>
+        <div class="suggestion-content">
+          <div class="suggestion-title">普拉提核心床训练</div>
+          <div class="suggestion-detail">建议每周2-3次普拉提核心床课程，重点改善整体体态对称性和肌肉平衡。</div>
+        </div>
+      </div>
+
+      <div class="suggestion-item">
+        <div class="suggestion-number">5</div>
+        <div class="suggestion-content">
+          <div class="suggestion-title">日常姿势意识培养</div>
+          <div class="suggestion-detail">建议设置每小时姿势提醒，注意坐姿和站姿中脊柱的自然排列。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Footer -->
+    <footer class="page-footer">
+      <div class="footer-studio">
+        <i data-lucide="heart" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i>
+        美丽普拉提工作室
+      </div>
+      <p class="footer-disclaimer">
+        本报告仅作为体态评估参考，不构成医疗诊断建议。如有不适请咨询专业医疗人员。
+      </p>
+      <p class="footer-disclaimer" style="margin-top:4px;">
+        &copy; 2026 美丽普拉提工作室 · 保留所有权利
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+
+    // Radar Chart Drawing (inline Canvas API)
+    (function() {
+      var canvas = document.getElementById('radarCanvas');
+      if (!canvas) return;
+
+      // High-DPI support
+      var dpr = window.devicePixelRatio || 1;
+      var displayWidth = 320;
+      var displayHeight = 320;
+      canvas.width = displayWidth * dpr;
+      canvas.height = displayHeight * dpr;
+      canvas.style.width = displayWidth + 'px';
+      canvas.style.height = displayHeight + 'px';
+      var ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+
+      var centerX = displayWidth / 2;
+      var centerY = displayHeight / 2;
+      var maxRadius = 110;
+      var levels = 5;
+      var sides = 5;
+
+      // Metric labels and values (normalized 0-1 where 1 = perfect)
+      var metrics = [
+        { label: '圆肩程度', value: 0.74, color: getComputedStyle(document.documentElement).getPropertyValue('--chart-1').trim() },
+        { label: '头前伸', value: 0.58, color: getComputedStyle(document.documentElement).getPropertyValue('--chart-2').trim() },
+        { label: '骨盆倾斜', value: 0.60, color: getComputedStyle(document.documentElement).getPropertyValue('--chart-3').trim() },
+        { label: '高低肩', value: 0.40, color: getComputedStyle(document.documentElement).getPropertyValue('--chart-4').trim() },
+        { label: '膝盖过伸', value: 0.89, color: getComputedStyle(document.documentElement).getPropertyValue('--chart-5').trim() }
+      ];
+
+      var angleStep = (Math.PI * 2) / sides;
+      var startAngle = -Math.PI / 2;
+
+      // Draw grid rings
+      var mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim();
+      var borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+
+      for (var i = 1; i <= levels; i++) {
+        var r = (maxRadius / levels) * i;
+        ctx.beginPath();
+        for (var j = 0; j < sides; j++) {
+          var angle = startAngle + j * angleStep;
+          var x = centerX + r * Math.cos(angle);
+          var y = centerY + r * Math.sin(angle);
+          if (j === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = i === levels ? borderColor : mutedColor;
+        ctx.lineWidth = i === levels ? 1.5 : 0.8;
+        ctx.stroke();
+
+        if (i < levels) {
+          ctx.fillStyle = i % 2 === 0 ? mutedColor : 'transparent';
+          ctx.fill();
+        }
+      }
+
+      // Draw axis lines
+      for (var j = 0; j < sides; j++) {
+        var angle = startAngle + j * angleStep;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(centerX + maxRadius * Math.cos(angle), centerY + maxRadius * Math.sin(angle));
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Draw data polygon
+      ctx.beginPath();
+      for (var j = 0; j < sides; j++) {
+        var angle = startAngle + j * angleStep;
+        var r = maxRadius * metrics[j].value;
+        var x = centerX + r * Math.cos(angle);
+        var y = centerY + r * Math.sin(angle);
+        if (j === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+
+      var primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+      ctx.fillStyle = primaryColor + '22';
+      ctx.fill();
+      ctx.strokeStyle = primaryColor;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Draw data points
+      for (var j = 0; j < sides; j++) {
+        var angle = startAngle + j * angleStep;
+        var r = maxRadius * metrics[j].value;
+        var x = centerX + r * Math.cos(angle);
+        var y = centerY + r * Math.sin(angle);
+
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = metrics[j].color;
+        ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      // Draw labels
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--foreground').trim();
+      ctx.font = '600 12px Inter, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      for (var j = 0; j < sides; j++) {
+        var angle = startAngle + j * angleStep;
+        var labelR = maxRadius + 22;
+        var x = centerX + labelR * Math.cos(angle);
+        var y = centerY + labelR * Math.sin(angle);
+        ctx.fillText(metrics[j].label, x, y);
+      }
+    })();
+  </script>
+</body>
+</html>

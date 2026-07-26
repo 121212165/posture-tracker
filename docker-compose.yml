@@ -1,0 +1,113 @@
+name: posture-tracker
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    image: postgres:16-alpine
+    container_name: posture-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: posture_tracker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # MinIO 对象存储
+  minio:
+    image: minio/minio:latest
+    container_name: posture-minio
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:9000/minio/health/live']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # AI 推理服务 (Python FastAPI + MediaPipe)
+  ai-inference:
+    build:
+      context: ./services/ai-inference
+      dockerfile: Dockerfile
+    container_name: posture-ai
+    restart: unless-stopped
+    ports:
+      - '8000:8000'
+    environment:
+      MODEL_COMPLEXITY: '1'
+      MIN_DETECTION_CONFIDENCE: '0.5'
+      MIN_TRACKING_CONFIDENCE: '0.5'
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000/health']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # NestJS 后端
+  backend:
+    build:
+      context: ./services/backend
+      dockerfile: Dockerfile
+    container_name: posture-backend
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      ai-inference:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/posture_tracker?schema=public
+      JWT_SECRET: ${JWT_SECRET}
+      WX_APPID: ${WX_APPID}
+      WX_SECRET: ${WX_SECRET}
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: posture-tracker
+      MINIO_SECURE: 'false'
+      AI_SERVICE_URL: http://ai-inference:8000
+      H5_BASE_URL: http://localhost:3001
+    volumes:
+      - backend_node_modules:/app/node_modules
+
+  # Next.js H5 报告端
+  h5:
+    build:
+      context: ./services/h5
+      dockerfile: Dockerfile
+    container_name: posture-h5
+    restart: unless-stopped
+    ports:
+      - '3001:3001'
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api/v1
+      PORT: 3001
+
+volumes:
+  postgres_data:
+  minio_data:
+  backend_node_modules:

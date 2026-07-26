@@ -1,0 +1,63 @@
+<view class="container" wx:if="{{member}}">
+  <view class="member-header">
+    <view class="member-avatar">
+      <text>{{member.name.charAt(0)}}</text>
+    </view>
+    <view class="member-info">
+      <text class="member-name">{{member.name}}</text>
+      <text class="member-meta" wx:if="{{member.phone}}">{{member.phone}}</text>
+      <text class="member-meta" wx:else>未设置手机号</text>
+    </view>
+  </view>
+
+  <view class="info-card">
+    <view class="info-row" wx:if="{{member.gender}}">
+      <text class="label">性别</text>
+      <text class="value">{{member.gender === 'MALE' ? '男' : member.gender === 'FEMALE' ? '女' : '其他'}}</text>
+    </view>
+    <view class="info-row" wx:if="{{member.ageRange}}">
+      <text class="label">年龄段</text>
+      <text class="value">{{member.ageRange}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">评估次数</text>
+      <text class="value">{{member._count.assessments}} 次</text>
+    </view>
+    <view class="info-row" bindtap="goToTrend">
+      <text class="label">改善趋势</text>
+      <text class="value text-primary">查看 ›</text>
+    </view>
+  </view>
+
+  <view class="assessment-section">
+    <view class="section-header">
+      <text class="section-title">评估记录</text>
+      <text class="add-btn" bindtap="createAssessment">+ 新建</text>
+    </view>
+
+    <view class="assessment-list" wx:if="{{assessments.length > 0}}">
+      <view class="assessment-item" wx:for="{{assessments}}" wx:key="id" bindtap="goToAssessment" data-id="{{item.id}}">
+        <view class="assessment-info">
+          <text class="assessment-type">{{item.type === 'INITIAL' ? '初始评估' : '复评'}}</text>
+          <text class="assessment-date">{{item.createdAt}}</text>
+        </view>
+        <view class="assessment-result" wx:if="{{item.metrics}}">
+          <text class="result-score">{{item.metrics.overallScore}}</text>
+          <text class="result-label">分</text>
+        </view>
+        <text class="status-tag status-{{item.status}}" wx:else>
+          {{item.status === 'PROCESSING' ? '处理中' : item.status === 'FAILED' ? '失败' : '等待中'}}
+        </text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:else>
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无评估记录</text>
+    </view>
+  </view>
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

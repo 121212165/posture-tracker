@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 欢迎区 -->
+  <view class="welcome-card">
+    <view class="flex-between">
+      <view>
+        <text class="welcome-text">你好，{{coach.name || '教练'}}</text>
+        <text class="studio-name">{{coach.role === 'OWNER' ? '工作室管理员' : '教练'}}</text>
+      </view>
+      <image class="avatar" src="{{coach.avatarUrl || ''}}" mode="aspectFill"></image>
+    </view>
+  </view>
+
+  <!-- 数据概览 -->
+  <view class="stats-grid" wx:if="{{overview}}">
+    <view class="stat-card">
+      <text class="stat-num">{{overview.totalMembers}}</text>
+      <text class="stat-label">学员总数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{overview.totalAssessments}}</text>
+      <text class="stat-label">评估次数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{overview.completedAssessments}}</text>
+      <text class="stat-label">已完成评估</text>
+    </view>
+  </view>
+
+  <!-- 快捷操作 -->
+  <view class="action-section">
+    <text class="section-title">快捷操作</text>
+    <view class="action-card" bindtap="goToAssessment">
+      <text class="action-icon">📸</text>
+      <view class="action-info">
+        <text class="action-name">新建体态评估</text>
+        <text class="action-desc">上传照片进行AI体态分析</text>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+    <view class="action-card" bindtap="goToMembers">
+      <text class="action-icon">👥</text>
+      <view class="action-info">
+        <text class="action-name">学员管理</text>
+        <text class="action-desc">查看和管理所有学员</text>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 最近评估 -->
+  <view class="recent-section" wx:if="{{overview && overview.recentAssessments.length > 0}}">
+    <text class="section-title">最近评估</text>
+    <view class="recent-list">
+      <view class="recent-item" wx:for="{{overview.recentAssessments}}" wx:key="id">
+        <view class="recent-info">
+          <text class="recent-name">{{item.member.name}}</text>
+          <text class="recent-date">{{item.type === 'INITIAL' ? '初始评估' : '复评'}}</text>
+        </view>
+        <view class="recent-score" wx:if="{{item.metrics}}">
+          <text class="score-num">{{item.metrics.overallScore}}</text>
+          <text class="score-label">分</text>
+        </view>
+        <text class="status-tag status-{{item.status}}" wx:else>
+          {{item.status === 'PROCESSING' ? '处理中' : item.status === 'PENDING' ? '等待中' : '失败'}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!loading && overview && overview.totalAssessments === 0}}">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">还没有评估记录</text>
+    <text class="empty-desc">点击上方"新建体态评估"开始</text>
+  </view>
+</view>

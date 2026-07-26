@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/members/members",
+    "pages/member-detail/member-detail",
+    "pages/assessment-create/assessment-create",
+    "pages/assessment-detail/assessment-detail",
+    "pages/report/report",
+    "pages/profile/profile",
+    "pages/trend/trend"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ec4899",
+    "navigationBarTitleText": "体态评估",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ec4899",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/members/members",
+        "text": "学员"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于工作室定位"
+    }
+  },
+  "requiredBackgroundModes": [],
+  "sitemapLocation": "sitemap.json"
+}

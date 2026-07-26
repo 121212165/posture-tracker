@@ -1,0 +1,86 @@
+/* 全局样式 */
+page {
+  background-color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  color: #1f2937;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #ffffff;
+  border: none;
+  border-radius: 48rpx;
+  padding: 24rpx 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.text-primary {
+  color: #ec4899;
+}
+
+.text-gray {
+  color: #9ca3af;
+}
+
+.text-sm {
+  font-size: 24rpx;
+}
+
+.text-lg {
+  font-size: 36rpx;
+}
+
+.text-xl {
+  font-size: 44rpx;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mt-4 {
+  margin-top: 16rpx;
+}
+
+.mt-8 {
+  margin-top: 32rpx;
+}
+
+.mb-4 {
+  margin-bottom: 16rpx;
+}

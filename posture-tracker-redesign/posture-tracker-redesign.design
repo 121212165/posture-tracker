@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "image-001",
+      "type": "image",
+      "title": "报告页封面横幅",
+      "version": 1,
+      "createdAt": 1784910300000,
+      "canvasData": {
+        "x": 0,
+        "y": 849
+      },
+      "devMetadata": {
+        "imageSrc": "assets/report-hero.jpg"
+      }
+    },
+    {
+      "id": "page-report",
+      "type": "page",
+      "title": "体态评估报告",
+      "version": 1,
+      "createdAt": 1784910300000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/report.html"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "mobile"
+  }
+}

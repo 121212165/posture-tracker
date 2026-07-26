@@ -1,0 +1,27 @@
+<view class="container" wx:if="{{report}}">
+  <view class="report-card">
+    <text class="report-title">体态评估报告</text>
+    <text class="report-desc">扫描二维码或复制链接查看完整报告</text>
+
+    <view class="qr-section" bindtap="previewQRCode">
+      <image src="{{report.qrCodeUrl}}" mode="aspectFit" class="qr-code" />
+      <text class="qr-tip">点击查看大图</text>
+    </view>
+
+    <view class="action-buttons">
+      <button class="btn-outline" bindtap="copyLink">复制链接</button>
+      <button class="btn-primary" open-type="share">分享给学员</button>
+    </view>
+  </view>
+
+  <view class="info-card">
+    <view class="info-row">
+      <text class="info-label">报告链接</text>
+      <text class="info-value link" bindtap="copyLink">{{report.h5Url}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

@@ -1,0 +1,14 @@
+<view class="login-page">
+  <view class="logo-section">
+    <view class="logo-icon">🧘</view>
+    <text class="app-name">体态评估助手</text>
+    <text class="app-desc">专业普拉提工作室体态管理系统</text>
+  </view>
+
+  <view class="login-btn-section">
+    <button class="btn-primary" bindtap="handleLogin" loading="{{loading}}" disabled="{{loading}}">
+      {{loading ? '登录中...' : '微信一键登录'}}
+    </button>
+    <text class="agreement-text">登录即代表同意《用户协议》和《隐私政策》</text>
+  </view>
+</view>

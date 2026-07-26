@@ -1,0 +1,77 @@
+<view class="container" wx:if="{{assessment}}">
+  <!-- 状态卡片 -->
+  <view class="status-card status-{{assessment.status}}">
+    <view class="status-icon">
+      {{assessment.status === 'COMPLETED' ? '✓' : assessment.status === 'PROCESSING' ? '⏳' : assessment.status === 'FAILED' ? '✗' : '⏸'}}
+    </view>
+    <view class="status-info">
+      <text class="status-text">
+        {{assessment.status === 'COMPLETED' ? '评估完成' : assessment.status === 'PROCESSING' ? 'AI分析中...' : assessment.status === 'FAILED' ? '评估失败' : '等待处理'}}
+      </text>
+      <text class="status-desc" wx:if="{{assessment.status === 'PROCESSING'}}">预计需要30秒，请稍候</text>
+      <text class="status-desc" wx:if="{{assessment.status === 'FAILED'}}">{{assessment.errorMessage || '处理失败，请重试'}}</text>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="card">
+    <text class="card-title">基本信息</text>
+    <view class="info-row">
+      <text class="info-label">学员</text>
+      <text class="info-value">{{assessment.member.name}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">类型</text>
+      <text class="info-value">{{assessment.type === 'INITIAL' ? '初始评估' : '复评'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">教练</text>
+      <text class="info-value">{{assessment.coach.name || '未知'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">日期</text>
+      <text class="info-value">{{assessment.createdAt}}</text>
+    </view>
+  </view>
+
+  <!-- 评估结果 -->
+  <view class="card" wx:if="{{assessment.metrics}}">
+    <text class="card-title">评估结果</text>
+    <view class="score-display">
+      <text class="score-big">{{assessment.metrics.overallScore}}</text>
+      <text class="score-unit">分</text>
+    </view>
+    <view class="metric-list">
+      <view class="metric-item">
+        <text class="metric-name">圆肩程度</text>
+        <text class="metric-value">{{assessment.metrics.shoulderRoundness}}</text>
+      </view>
+      <view class="metric-item">
+        <text class="metric-name">头前伸</text>
+        <text class="metric-value">{{assessment.metrics.headForward}}</text>
+      </view>
+      <view class="metric-item">
+        <text class="metric-name">骨盆倾斜</text>
+        <text class="metric-value">{{assessment.metrics.pelvicTilt}}</text>
+      </view>
+      <view class="metric-item">
+        <text class="metric-name">高低肩</text>
+        <text class="metric-value">{{assessment.metrics.shoulderDiff}}</text>
+      </view>
+      <view class="metric-item">
+        <text class="metric-name">膝盖过伸</text>
+        <text class="metric-value">{{assessment.metrics.kneeHyperextension}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button wx:if="{{assessment.status === 'FAILED'}}" class="btn-primary" bindtap="handleRetry">重新分析</button>
+    <button wx:if="{{assessment.status === 'COMPLETED'}}" class="btn-primary" bindtap="handleGenerateReport">生成报告</button>
+  </view>
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

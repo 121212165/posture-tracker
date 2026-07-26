@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体态评估报告</title>
+    <style id="theme-vars">
+/* ============================================================
+   Posture Tracker V2 — Brand Design Tokens
+   Primary: Rose (#e11d48 family) — Pilates professional tone
+   Neutrals: Warm stone grays
+   ============================================================ */
+
+:root {
+  /* --- Brand Primary Scale (Rose) --- */
+  --color-primary-50: #fff1f2;
+  --color-primary-100: #ffe4e6;
+  --color-primary-200: #fecdd3;
+  --color-primary-300: #fda4af;
+  --color-primary-400: #fb7185;
+  --color-primary-500: #f43f5e;
+  --color-primary-600: #e11d48;
+  --color-primary-700: #be123c;
+  --color-primary-800: #9f1239;
+  --color-primary-900: #881337;
+
+  /* --- Neutrals (Warm Stone) --- */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+
+  /* --- State Colors --- */
+  --state-success: #16a34a;
+  --state-success-bg: #dcfce7;
+  --state-warning: #d97706;
+  --state-warning-bg: #fef3c7;
+  --state-error: #dc2626;
+  --state-error-bg: #fee2e2;
+  --state-info: #2563eb;
+  --state-info-bg: #dbeafe;
+
+  /* --- Semantic Aliases (required by apply-html-head-contract) --- */
+  --color-background: #fafaf9;
+  --color-foreground: #1c1917;
+  --color-card: #ffffff;
+  --color-card-foreground: #1c1917;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1c1917;
+  --color-primary: #e11d48;
+  --color-primary-foreground: #ffffff;
+  --color-muted: #f5f5f4;
+  --color-muted-foreground: #78716c;
+  --color-border: #e7e5e4;
+  --color-input: #e7e5e4;
+  --color-ring: #e11d48;
+  --color-radius-small: 4px;
+  --color-radius-medium: 8px;
+  --color-radius-large: 12px;
+
+  /* --- Radius Scale --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgba(28, 25, 23, 0.03);
+  --shadow: 0 1px 3px 0 rgba(28, 25, 23, 0.04), 0 1px 2px -1px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.04), 0 2px 4px -2px rgba(28, 25, 23, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.05), 0 4px 6px -4px rgba(28, 25, 23, 0.05);
+  --shadow-float: 0 20px 25px -5px rgba(28, 25, 23, 0.1), 0 8px 10px -6px rgba(28, 25, 23, 0.08);
+
+  /* --- Spacing --- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* --- Typography --- */
+  --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+.dark {
+  --color-background: #1c1917;
+  --color-foreground: #fafaf9;
+  --color-card: #292524;
+  --color-card-foreground: #fafaf9;
+  --color-popover: #292524;
+  --color-popover-foreground: #fafaf9;
+  --color-primary: #fb7185;
+  --color-primary-foreground: #1c1917;
+  --color-muted: #44403c;
+  --color-muted-foreground: #a8a29e;
+  --color-border: #44403c;
+  --color-input: #44403c;
+  --color-ring: #fb7185;
+}
+
+.font-sans { font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); }
+.font-mono { font-family: var(--font-mono); }
+
+.text-xs { font-size: var(--text-xs); line-height: var(--leading-normal); }
+.text-sm { font-size: var(--text-sm); line-height: var(--leading-normal); }
+.text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+.text-lg { font-size: var(--text-lg); line-height: var(--leading-snug); }
+.text-xl { font-size: var(--text-xl); line-height: var(--leading-snug); }
+.text-2xl { font-size: var(--text-2xl); line-height: var(--leading-tight); }
+.text-3xl { font-size: var(--text-3xl); line-height: var(--leading-tight); }
+.text-4xl { font-size: var(--text-4xl); line-height: var(--leading-tight); }
+
+.font-normal { font-weight: var(--font-normal); }
+.font-medium { font-weight: var(--font-medium); }
+.font-semibold { font-weight: var(--font-semibold); }
+.font-bold { font-weight: var(--font-bold); }
+
+.leading-tight { line-height: var(--leading-tight); }
+.leading-snug { line-height: var(--leading-snug); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-foreground);
+    --color-card: var(--color-card);
+    --color-card-foreground: var(--color-card-foreground);
+    --color-popover: var(--color-popover);
+    --color-popover-foreground: var(--color-popover-foreground);
+    --color-primary: var(--color-primary);
+    --color-primary-foreground: var(--color-primary-foreground);
+    --color-muted: var(--color-muted);
+    --color-muted-foreground: var(--color-muted-foreground);
+    --color-border: var(--color-border);
+    --color-input: var(--color-input);
+    --color-ring: var(--color-ring);
+    --radius-sm: var(--color-radius-small);
+    --radius-md: var(--color-radius-medium);
+    --radius-lg: var(--color-radius-large);
+  }
+  @layer base {
+    body { background: var(--color-background); color: var(--color-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--color-background); }
+      .text-background { color: var(--color-background); }
+      .border-background { border-color: var(--color-background); }
+      .ring-background { --tw-ring-color: var(--color-background); }
+      .bg-foreground { background-color: var(--color-foreground); }
+      .text-foreground { color: var(--color-foreground); }
+      .border-foreground { border-color: var(--color-foreground); }
+      .ring-foreground { --tw-ring-color: var(--color-foreground); }
+      .bg-card { background-color: var(--color-card); }
+      .text-card { color: var(--color-card); }
+      .border-card { border-color: var(--color-card); }
+      .ring-card { --tw-ring-color: var(--color-card); }
+      .bg-card-foreground { background-color: var(--color-card-foreground); }
+      .text-card-foreground { color: var(--color-card-foreground); }
+      .border-card-foreground { border-color: var(--color-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--color-card-foreground); }
+      .bg-popover { background-color: var(--color-popover); }
+      .text-popover { color: var(--color-popover); }
+      .border-popover { border-color: var(--color-popover); }
+      .ring-popover { --tw-ring-color: var(--color-popover); }
+      .bg-popover-foreground { background-color: var(--color-popover-foreground); }
+      .text-popover-foreground { color: var(--color-popover-foreground); }
+      .border-popover-foreground { border-color: var(--color-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--color-popover-foreground); }
+      .bg-primary { background-color: var(--color-primary); }
+      .text-primary { color: var(--color-primary); }
+      .border-primary { border-color: var(--color-primary); }
+      .ring-primary { --tw-ring-color: var(--color-primary); }
+      .bg-primary-foreground { background-color: var(--color-primary-foreground); }
+      .text-primary-foreground { color: var(--color-primary-foreground); }
+      .border-primary-foreground { border-color: var(--color-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--color-primary-foreground); }
+      .bg-muted { background-color: var(--color-muted); }
+      .text-muted { color: var(--color-muted); }
+      .border-muted { border-color: var(--color-muted); }
+      .ring-muted { --tw-ring-color: var(--color-muted); }
+      .bg-muted-foreground { background-color: var(--color-muted-foreground); }
+      .text-muted-foreground { color: var(--color-muted-foreground); }
+      .border-muted-foreground { border-color: var(--color-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--color-muted-foreground); }
+      .bg-border { background-color: var(--color-border); }
+      .text-border { color: var(--color-border); }
+      .border-border { border-color: var(--color-border); }
+      .ring-border { --tw-ring-color: var(--color-border); }
+      .bg-input { background-color: var(--color-input); }
+      .text-input { color: var(--color-input); }
+      .border-input { border-color: var(--color-input); }
+      .ring-input { --tw-ring-color: var(--color-input); }
+      .bg-ring { background-color: var(--color-ring); }
+      .text-ring { color: var(--color-ring); }
+      .border-ring { border-color: var(--color-ring); }
+      .ring-ring { --tw-ring-color: var(--color-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <img src="../assets/hero-pilates.jpg" alt="普拉提工作室">
+    <div class="hero-overlay">
+      <span class="studio-name">优雅普拉提工作室</span>
+      <span class="studio-sub">专业体态评估 · 定制训练方案</span>
+    </div>
+  </div>
+
+  <!-- Report Content -->
+  <div class="report-content">
+
+    <!-- Student Info Card -->
+    <div class="card student-card">
+      <div class="report-title">体态评估报告</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">学员姓名</span>
+          <span class="info-value">张美琪</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">评估日期</span>
+          <span class="info-value">2024年6月15日</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">评估类型</span>
+          <span class="info-value">初始评估</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">评估教练</span>
+          <span class="info-value">陈教练</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overall Score -->
+    <div class="card score-section">
+      <div class="score-ring-wrapper">
+        <svg viewBox="0 0 160 160">
+          <defs>
+            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fb7185" />
+              <stop offset="100%" stop-color="#e11d48" />
+            </linearGradient>
+          </defs>
+          <circle class="score-ring-bg" cx="80" cy="80" r="65" />
+          <circle class="score-ring-fill" cx="80" cy="80" r="65" />
+        </svg>
+        <div class="score-value-wrapper">
+          <span class="score-number">85</span>
+          <span class="score-label">综合评分</span>
+        </div>
+      </div>
+      <div class="score-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        体态良好
+      </div>
+    </div>
+
+    <!-- Section: Posture Indicators -->
+    <div class="section-header">
+      <div class="accent-bar"></div>
+      <span class="section-title">体态指标</span>
+    </div>
+
+    <div class="metrics-grid">
+      <!-- Metric 1: 圆肩程度 - Good -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-name">圆肩程度</span>
+          <span class="status-icon good">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <span class="metric-value">12°</span>
+      </div>
+
+      <!-- Metric 2: 头前伸 - Good -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-name">头前伸</span>
+          <span class="status-icon good">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <span class="metric-value">6mm</span>
+      </div>
+
+      <!-- Metric 3: 骨盆倾斜 - Warning -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-name">骨盆倾斜</span>
+          <span class="status-icon warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </span>
+        </div>
+        <span class="metric-value">8°</span>
+      </div>
+
+      <!-- Metric 4: 高低肩 - Good -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-name">高低肩</span>
+          <span class="status-icon good">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <span class="metric-value">1.5cm</span>
+      </div>
+
+      <!-- Metric 5: 膝盖过伸 - Warning -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-name">膝盖过伸</span>
+          <span class="status-icon warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </span>
+        </div>
+        <span class="metric-value">178°</span>
+      </div>
+    </div>
+
+    <!-- Section: Improvement Suggestions -->
+    <div class="section-header">
+      <div class="accent-bar"></div>
+      <span class="section-title">改善建议</span>
+    </div>
+
+    <div class="suggestions-card">
+      <div class="suggestion-item">
+        <div class="suggestion-number">1</div>
+        <div class="suggestion-text">整体体态良好，建议保持现有训练计划</div>
+      </div>
+      <div class="suggestion-item">
+        <div class="suggestion-number">2</div>
+        <div class="suggestion-text">注意日常坐姿，避免长时间低头</div>
+      </div>
+      <div class="suggestion-item">
+        <div class="suggestion-number">3</div>
+        <div class="suggestion-text">定期复查以跟踪体态变化</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="report-footer">
+      <div class="deco-line"></div>
+      <p class="footer-brand" style="margin-top: 16px;">本报告由<span class="brand-name">优雅普拉提工作室</span>生成</p>
+      <p class="footer-disclaimer">体态评估仅供参考，具体训练方案请咨询专业教练</p>
+    </div>
+
+  </div>
+
+
+    <style>
+    /* === Brand Tokens === */
+    :root {
+      --color-primary-50: #fff1f2;
+      --color-primary-100: #ffe4e6;
+      --color-primary-200: #fecdd3;
+      --color-primary-300: #fda4af;
+      --color-primary-400: #fb7185;
+      --color-primary-500: #f43f5e;
+      --color-primary-600: #e11d48;
+      --color-primary-700: #be123c;
+      --color-primary-800: #9f1239;
+      --color-primary-900: #881337;
+      --color-stone-50: #fafaf9;
+      --color-stone-100: #f5f5f4;
+      --color-stone-200: #e7e5e4;
+      --color-stone-300: #d6d3d1;
+      --color-stone-400: #a8a29e;
+      --color-stone-500: #78716c;
+      --color-stone-600: #57534e;
+      --color-stone-700: #44403c;
+      --color-stone-800: #292524;
+      --color-stone-900: #1c1917;
+      --state-success: #16a34a;
+      --state-success-bg: #dcfce7;
+      --state-warning: #d97706;
+      --state-warning-bg: #fef3c7;
+      --color-background: #fafaf9;
+      --color-foreground: #1c1917;
+      --color-card: #ffffff;
+      --color-primary: #e11d48;
+      --color-primary-foreground: #ffffff;
+      --color-muted: #f5f5f4;
+      --color-muted-foreground: #78716c;
+      --color-border: #e7e5e4;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px 0 rgba(28, 25, 23, 0.03);
+      --shadow: 0 1px 3px 0 rgba(28, 25, 23, 0.04), 0 1px 2px -1px rgba(28, 25, 23, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.04), 0 2px 4px -2px rgba(28, 25, 23, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.05), 0 4px 6px -4px rgba(28, 25, 23, 0.05);
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-serif: 'Noto Serif SC', 'Georgia', serif;
+    }
+
+    /* === Reset & Base === */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-background);
+      color: var(--color-foreground);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* === Hero Banner === */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(136, 19, 55, 0.35) 0%,
+        rgba(225, 29, 72, 0.55) 50%,
+        rgba(190, 18, 60, 0.75) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-overlay .studio-name {
+      color: #ffffff;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-overlay .studio-sub {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.8125rem;
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    /* === Content Area === */
+    .report-content {
+      padding: 0 16px 32px;
+      margin-top: -28px;
+      position: relative;
+    }
+
+    /* === Card Base === */
+    .card {
+      background: var(--color-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* === Student Info Card === */
+    .student-card {
+      padding: 24px 20px;
+    }
+
+    .student-card .report-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary-600);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .student-card .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 16px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-item .info-label {
+      font-size: 0.75rem;
+      color: var(--color-muted-foreground);
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+
+    .info-item .info-value {
+      font-size: 0.9375rem;
+      color: var(--color-foreground);
+      font-weight: 600;
+    }
+
+    /* === Score Section === */
+    .score-section {
+      margin-top: 16px;
+      padding: 32px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .score-ring-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+
+    .score-ring-wrapper svg {
+      transform: rotate(-90deg);
+      width: 160px;
+      height: 160px;
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--color-primary-50);
+      stroke-width: 10;
+    }
+
+    .score-ring-fill {
+      fill: none;
+      stroke: url(#scoreGradient);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 408.41;
+      stroke-dashoffset: 61.26;
+      /* 85/100 = 0.85 => offset = 408.41 * (1 - 0.85) = 61.26 */
+    }
+
+    .score-value-wrapper {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-primary-600);
+      line-height: 1;
+    }
+
+    .score-label {
+      font-size: 0.8125rem;
+      color: var(--color-muted-foreground);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .score-badge {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 14px;
+      background: var(--color-primary-50);
+      border: 1px solid var(--color-primary-100);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-primary-600);
+    }
+
+    /* === Section Header === */
+    .section-header {
+      margin-top: 20px;
+      margin-bottom: 12px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header .accent-bar {
+      width: 4px;
+      height: 20px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--color-primary-400), var(--color-primary-600));
+      flex-shrink: 0;
+    }
+
+    .section-header .section-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--color-foreground);
+    }
+
+    /* === Metric Cards Grid === */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .metric-card {
+      background: var(--color-card);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform var(--transition-fast);
+    }
+
+    .metric-card:active {
+      transform: scale(0.97);
+    }
+
+    .metric-card .metric-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .metric-card .metric-name {
+      font-size: 0.8125rem;
+      color: var(--color-muted-foreground);
+      font-weight: 500;
+    }
+
+    .metric-card .status-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .status-icon.good {
+      background: var(--state-success-bg);
+    }
+
+    .status-icon.warning {
+      background: var(--state-warning-bg);
+    }
+
+    .status-icon svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .metric-card .metric-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-foreground);
+      line-height: 1;
+    }
+
+    /* === Suggestions Section === */
+    .suggestions-card {
+      margin-top: 20px;
+      background: var(--color-card);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .suggestion-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .suggestion-item + .suggestion-item {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .suggestion-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .suggestion-text {
+      font-size: 0.875rem;
+      color: var(--color-stone-700);
+      line-height: 1.6;
+    }
+
+    /* === Footer === */
+    .report-footer {
+      margin-top: 32px;
+      padding: 24px 16px 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 0.8125rem;
+      color: var(--color-stone-500);
+      font-weight: 500;
+    }
+
+    .footer-brand .brand-name {
+      color: var(--color-primary-600);
+      font-weight: 600;
+    }
+
+    .footer-disclaimer {
+      margin-top: 8px;
+      font-size: 0.6875rem;
+      color: var(--color-stone-400);
+      line-height: 1.5;
+    }
+
+    /* === Decorative separator === */
+    .deco-line {
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--color-primary-400), var(--color-primary-200));
+      margin: 0 auto;
+    }
+  </style>
+</body>
+</html>
